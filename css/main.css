@@ -60,16 +60,59 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-
+body{
+    padding:20px;
+}
 #wrapper{
     margin:0 auto;
     width:400px;
+    padding:20px;
+    border-radius: 5px;
+    padding:5px;
+    background: #B4BBED;
+}
+#accordion{
+    list-style: none;
+    margin: 0;
+    padding:0;
+    
+}
+.arrow-open-close{
+    display:block;
+    width:30px;
+    height:30px;
+    float:right;
+    background: #774CED;
+}
+.arrow-open-close span{
+    display:none;
 }
 
-
-
-
-
+.toggle-btn{
+    cursor: pointer;
+    background: #A185ED;
+    float:left;
+    width:100%;
+}
+.toggle-btn:hover{
+    background: #B29DEB;
+}
+.container-title{
+    color:#fff;
+    padding-left:10px;
+    line-height: 30px;
+}
+.accordion-container{
+    clear: both;
+    overflow: hidden;
+    height:100px;
+}
+.accordion-container p{
+    font-size: 11px;
+}
+#accordion .closed{
+     height:0;
+}
 
 
 
