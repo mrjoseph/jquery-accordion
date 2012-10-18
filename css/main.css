@@ -63,26 +63,43 @@ textarea {
 body{
     padding:20px;
 }
-#wrapper{
+#accordion-wrapper h1, #accordion-wrapper h4{
+    margin:0;
+    padding:0;
+    font-weight: normal;
+} 
+#accordion-wrapper h4{
+    font-size: 10px;
+
+}
+#accordion-wrapper{
     margin:0 auto;
     width:400px;
     padding:20px;
     border-radius: 5px;
     padding:5px;
-    background: #B4BBED;
+    border:1px solid #DBDBDB;
 }
 #accordion{
     list-style: none;
-    margin: 0;
+    margin: 20px 0 0 0;
     padding:0;
     
 }
 .arrow-open-close{
     display:block;
-    width:30px;
-    height:30px;
+    width:13px;
+    height:10px;
     float:right;
-    background: #774CED;
+    background-image: url('../images/accordion-arrows.jpg');
+    background-repeat: no-repeat;
+    margin:10px;
+}
+.tab-closed{
+
+}
+.tab-opened{
+   background-position: 0 -10px; 
 }
 .arrow-open-close span{
     display:none;
@@ -90,16 +107,12 @@ body{
 
 .toggle-btn{
     cursor: pointer;
-    background: #A185ED;
+    border-top:1px solid #ccc;
     float:left;
     width:100%;
 }
-.toggle-btn:hover{
-    background: #B29DEB;
-}
 .container-title{
-    color:#fff;
-    padding-left:10px;
+    color:#000;
     line-height: 30px;
 }
 .accordion-container{

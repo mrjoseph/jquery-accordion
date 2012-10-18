@@ -16,18 +16,17 @@ accordion.vars = {
 }
 
 	accordion.app = {
-
 		openTab: function(open){
 			$(open).animate({
 				height: 100
-			},500,function(){
+			},700,function(){
 				$(this).removeClass('closed').addClass('opened');
 			});
 		},
 		closeTab: function(){
 			$('.opened').animate({
 				height: 0
-			},500, function(){
+			},700, function(){
 				$(this).removeClass('opened').addClass('closed');
 			});
 		},
@@ -35,12 +34,15 @@ accordion.vars = {
 			$('.toggle-btn').click(function(){
 				//close any open tabs if they have a class of open
 				var open = $(this).parent().find('.accordion-container');
+				var tabImage = $(this).find('.arrow-open-close');
 				if(!open.hasClass('opened')){
 					accordion.app.closeTab();
 					accordion.app.openTab(open);
+					$('.arrow-open-close').removeClass('tab-opened').addClass('tab-closed');
+					$(this).find('.arrow-open-close').removeClass('tab-closed').addClass('tab-opened');
 				}
 			});	
-		},
+		}
 
 	};
 
