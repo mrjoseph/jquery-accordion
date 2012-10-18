@@ -18,23 +18,27 @@ accordion.vars = {
 	accordion.app = {
 
 		openTab: function(open){
-			console.log('open')
 			$(open).animate({
 				height: 100
-			},500);
+			},500,function(){
+				$(this).removeClass('closed').addClass('opened');
+			});
 		},
 		closeTab: function(){
-			console.log('Close all tabs')
-			$('.accordion-container').animate({
+			$('.opened').animate({
 				height: 0
-			},500);
+			},500, function(){
+				$(this).removeClass('opened').addClass('closed');
+			});
 		},
 		init: function(){
 			$('.toggle-btn').click(function(){
 				//close any open tabs if they have a class of open
 				var open = $(this).parent().find('.accordion-container');
-				accordion.app.closeTab();
-				accordion.app.openTab(open);
+				if(!open.hasClass('opened')){
+					accordion.app.closeTab();
+					accordion.app.openTab(open);
+				}
 			});	
 		},
 
