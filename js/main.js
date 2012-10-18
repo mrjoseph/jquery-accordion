@@ -4,15 +4,14 @@ accordion.vars = accordion.vars || {};
 accordion.app = accordion.app || {};
 
 accordion.vars = {
-	message : 'hello world',
-	message2 : 'how are you doing',
+	test : 'hello world',
 }
 
 	accordion.app = {
 		init: function(){
 			var message = accordion.vars.message;
 			var message2 = accordion.vars.message2;
-			console.log(message +' '+message2);
+			console.log(test);
 		},
 
 	};
