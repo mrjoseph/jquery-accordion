@@ -12,29 +12,32 @@ accordion.vars = accordion.vars || {};
 accordion.app = accordion.app || {};
 
 accordion.vars = {
-	busy:false
+	busy:false,
+	speed:400,
+	toggleMinHeight: 0,
+	toggleMaxHeight: 200
 }
 
 	accordion.app = {
 		openTab: function(open){
 			$(open).animate({
-				height: 100
-			},700,function(){
+				height: accordion.vars.toggleMaxHeight
+			}, accordion.vars.speed,function(){
 				$(this).removeClass('closed').addClass('opened');
 				accordion.vars.busy = false;
 			});
 		},
 		closeTab: function(){
 			$('.opened').animate({
-				height: 0
-			},700, function(){
+				height: accordion.vars.toggleMinHeight
+			}, accordion.vars.speed, function(){
 				$(this).removeClass('opened').addClass('closed');
 			});
 		},
 		init: function(){
 			$('.toggle-btn').click(function(){
 				//close any open tabs if they have a class of open
-				var open = $(this).parent().find('.accordion-container');
+				var open = $(this).next('.accordion-container');
 				var tabImage = $(this).find('.arrow-open-close');
 				if(!accordion.vars.busy){
 					if(!open.hasClass('opened')){
