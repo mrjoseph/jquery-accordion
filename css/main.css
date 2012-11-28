@@ -86,7 +86,7 @@ body{
     padding:0;
     
 }
-.arrow-open-close{
+#accordion .arrow-open-close{
     display:block;
     width:13px;
     height:10px;
@@ -95,32 +95,32 @@ body{
     background-repeat: no-repeat;
     margin:10px;
 }
-.tab-closed{
+#accordion .tab-closed{
 
 }
-.tab-opened{
+#accordion .tab-opened{
    background-position: 0 -10px; 
 }
-.arrow-open-close span{
+#accordion .arrow-open-close span{
     display:none;
 }
 
-.toggle-btn{
+#accordion dt{
     cursor: pointer;
     border-top:1px solid #ccc;
     float:left;
     width:100%;
 }
-.container-title{
+#accordion .container-title{
     color:#000;
     line-height: 30px;
 }
-.accordion-container{
+#accordion dd{
     clear: both;
     overflow: hidden;
     height:100px;
 }
-.accordion-container p{
+#accordion dd p{
     font-size: 11px;
 }
 #accordion .closed{

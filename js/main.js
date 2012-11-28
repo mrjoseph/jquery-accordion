@@ -1,22 +1,20 @@
-
-/* 
-	1) 	Close all the content containers apart from the default open container.
-	2) 	On click of the toggle button close any containers that are open and at 
-		the same time open the content container. 
-	3)	Change the sprite arrow to uillustrate that the container is open.
-	4)	
-*/
-
 var accordion = accordion || {};
 accordion.vars = accordion.vars || {};
 accordion.app = accordion.app || {};
 
 accordion.vars = {
+	container: '.accordion-container',
+	arrow: '.arrow-open-close',
 	busy:false,
 	speed:400,
 	toggleMinHeight: 0,
-	toggleMaxHeight: 200
-}
+	toggleMaxHeight: 100,
+	swapImage: function(a,that){
+		$(a).removeClass('tab-opened').addClass('tab-closed');
+		that.find(a).removeClass('tab-closed').addClass('tab-opened');
+		
+	}
+};
 
 	accordion.app = {
 		openTab: function(open){
@@ -27,6 +25,7 @@ accordion.vars = {
 				accordion.vars.busy = false;
 			});
 		},
+
 		closeTab: function(){
 			$('.opened').animate({
 				height: accordion.vars.toggleMinHeight
@@ -34,24 +33,31 @@ accordion.vars = {
 				$(this).removeClass('opened').addClass('closed');
 			});
 		},
+
 		init: function(){
-			$('.toggle-btn').click(function(){
+			var
+			a		= accordion.vars.arrow,
+			b		= accordion.vars.container,
+			_close	= accordion.app.closeTab,
+			_open	= accordion.app.openTab,
+			busy	= accordion.vars.busy;
+
+			$('dt').click(function(){
 				//close any open tabs if they have a class of open
-				var open = $(this).next('.accordion-container');
-				var tabImage = $(this).find('.arrow-open-close');
-				if(!accordion.vars.busy){
+				var
+				open		= $(this).next(b),
+				tabImage	= $(this).find(a);
+				if(!busy){
 					if(!open.hasClass('opened')){
-						accordion.app.closeTab();		
-						accordion.app.openTab(open);
-						$('.arrow-open-close').removeClass('tab-opened').addClass('tab-closed');
-						$(this).find('.arrow-open-close').removeClass('tab-closed').addClass('tab-opened');
-						accordion.vars.busy = true;
-					}					
+						_close();
+						_open(open);
+						accordion.vars.swapImage(a,$(this));
+						this.busy = true;
+					}
 				}
-			});	
+			});
 		}
 	};
-
 $(document).ready(function(){
 	accordion.app.init();
 });
